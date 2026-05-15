@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats de recherche</title>
+</head>
+<body>
+    <h1>Résultats de recherche</h1>
+
+    <script>
+        const query = new URLSearchParams(window.location.search).get("q");
+
+        const pages = [
+            { title: "Cobra à Castelginest", url: "cobralun.html", content: "cobra actu pipo actualités" },
+
+            
+        ];
+
+        const results = pages.filter(p =>
+            p.content.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (results.length === 0) {
+            document.write("<p>Aucun résultat trouvé.</p>");
+        } else {
+            results.forEach(r => {
+                document.write(`<p><a href="${r.url}">${r.title}</a></p>`);
+            });
+        }
+    </script>
+</body>
+</html>
